@@ -30,6 +30,7 @@ func (client *RouteHandler) GetEmployeeByIDHandler(w http.ResponseWriter, r *htt
 		return
 	}
 
-	w.Write([]byte(detail))
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(detail)
 	w.WriteHeader(http.StatusOK)
 }
